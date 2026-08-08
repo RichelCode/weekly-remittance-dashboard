@@ -11,82 +11,79 @@
     --rule:#E4E7EC; --rule-strong:#C7CED6;
     --green:#1C5A41; --green-soft:#E9F0EC;
     --brick:#8B3A2B; --brick-soft:#F4E9E6;
+    --field:#FFFFFF;
     --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",serif;
     --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   }
   @media (prefers-color-scheme:dark){
-    :root{
-      --paper:#12151A; --surface:#171B21;
-      --ink:#E9ECF0; --ink-2:#AEB7C0; --faint:#77818C;
-      --rule:#262C34; --rule-strong:#353D47;
-      --green:#5BB98D; --green-soft:#122720;
-      --brick:#D68A6F; --brick-soft:#2C1B16;
-    }
+    :root{ --paper:#12151A; --surface:#171B21; --ink:#E9ECF0; --ink-2:#AEB7C0; --faint:#77818C;
+      --rule:#262C34; --rule-strong:#353D47; --green:#5BB98D; --green-soft:#122720;
+      --brick:#D68A6F; --brick-soft:#2C1B16; --field:#12161B; }
   }
-  :root[data-theme="light"]{
-    --paper:#F7F8FA; --surface:#FFFFFF;
-    --ink:#1E2733; --ink-2:#49535F; --faint:#7C8794;
-    --rule:#E4E7EC; --rule-strong:#C7CED6;
-    --green:#1C5A41; --green-soft:#E9F0EC;
-    --brick:#8B3A2B; --brick-soft:#F4E9E6;
-  }
-  :root[data-theme="dark"]{
-    --paper:#12151A; --surface:#171B21;
-    --ink:#E9ECF0; --ink-2:#AEB7C0; --faint:#77818C;
-    --rule:#262C34; --rule-strong:#353D47;
-    --green:#5BB98D; --green-soft:#122720;
-    --brick:#D68A6F; --brick-soft:#2C1B16;
-  }
+  :root[data-theme="light"]{ --paper:#F7F8FA; --surface:#FFFFFF; --ink:#1E2733; --ink-2:#49535F; --faint:#7C8794;
+    --rule:#E4E7EC; --rule-strong:#C7CED6; --green:#1C5A41; --green-soft:#E9F0EC; --brick:#8B3A2B; --brick-soft:#F4E9E6; --field:#FFFFFF; }
+  :root[data-theme="dark"]{ --paper:#12151A; --surface:#171B21; --ink:#E9ECF0; --ink-2:#AEB7C0; --faint:#77818C;
+    --rule:#262C34; --rule-strong:#353D47; --green:#5BB98D; --green-soft:#122720; --brick:#D68A6F; --brick-soft:#2C1B16; --field:#12161B; }
 
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);
     line-height:1.55; -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums;}
-  .sheet{max-width:940px; margin:26px auto; background:var(--surface);
-    border:1px solid var(--rule); padding:44px 52px 40px;}
+  .sheet{max-width:940px; margin:26px auto; background:var(--surface); border:1px solid var(--rule); padding:40px 52px 40px;}
   .tnum{font-variant-numeric:tabular-nums}
   .mono{font-family:var(--mono)}
+  button{font-family:inherit}
 
   /* masthead */
-  .mast{display:flex; justify-content:space-between; align-items:flex-start; gap:28px; flex-wrap:wrap}
-  .mast .org{font-size:11.5px; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--ink-2); font-weight:600}
-  .mast h1{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.08;
-    letter-spacing:-.005em; margin:9px 0 0; color:var(--ink); text-wrap:balance}
-  .mast .lede{font-size:13.5px; color:var(--ink-2); margin:8px 0 0; max-width:44ch}
-  .meta{text-align:right; font-size:12.5px; line-height:1.7; white-space:nowrap}
+  .mast{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap}
+  .brand{display:flex; gap:15px; align-items:flex-start}
+  .mono-mark{width:46px; height:46px; flex:none; border:1.5px solid var(--ink); display:grid; place-items:center;
+    font-family:var(--serif); font-weight:600; font-size:20px; letter-spacing:.02em; color:var(--ink); margin-top:3px}
+  .org{font-size:11.5px; letter-spacing:.17em; text-transform:uppercase; color:var(--ink-2); font-weight:600}
+  .mast h1{font-family:var(--serif); font-weight:600; font-size:30px; line-height:1.08; letter-spacing:-.005em; margin:7px 0 0; color:var(--ink); text-wrap:balance}
+  .addr{font-size:11.5px; color:var(--faint); margin:8px 0 0; line-height:1.5}
+  .addr .mono{font-size:11px}
+  .meta{text-align:right; font-size:12px; line-height:1.65; white-space:nowrap}
   .meta .row{display:flex; justify-content:flex-end; gap:12px}
-  .meta .m-lab{color:var(--faint); letter-spacing:.02em}
-  .meta .m-val{color:var(--ink); font-weight:560; font-variant-numeric:tabular-nums}
-  .meta .conf{margin-top:8px; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--brick); font-weight:600}
-  .rule-2{border:0; border-top:2px solid var(--ink); margin:20px 0 0}
+  .meta .m-lab{color:var(--faint)} .meta .m-val{color:var(--ink); font-weight:560}
+  .meta .conf{margin-top:7px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--brick); font-weight:600}
+  .theme-btn{margin-top:10px; display:inline-flex; align-items:center; gap:7px; background:var(--field);
+    border:1px solid var(--rule-strong); color:var(--ink-2); font-size:11.5px; padding:5px 11px; border-radius:999px; cursor:pointer}
+  .theme-btn:hover{border-color:var(--ink-2); color:var(--ink)}
+  .theme-btn svg{width:13px; height:13px}
+  .theme-btn:focus-visible{outline:2px solid var(--green); outline-offset:2px}
+  .rule-2{border:0; border-top:2px solid var(--ink); margin:18px 0 0}
   .rule-2.thin{border-top:1px solid var(--rule-strong); margin-top:3px}
 
-  /* summary figures band */
-  .summary{display:grid; grid-template-columns:repeat(5,1fr); margin:28px 0 4px;
-    border:1px solid var(--rule); border-radius:0}
-  .fig{padding:16px 18px; border-right:1px solid var(--rule)}
+  /* controls */
+  .controls{display:flex; justify-content:space-between; align-items:center; gap:16px; margin:20px 0 4px; flex-wrap:wrap}
+  .wk-pick{display:flex; align-items:center; gap:10px}
+  .wk-pick label{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:600}
+  select#week{font-family:var(--serif); font-size:16px; font-weight:600; color:var(--ink); background:var(--field);
+    border:1px solid var(--rule-strong); border-radius:6px; padding:6px 30px 6px 12px; cursor:pointer;
+    -webkit-appearance:none; appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);
+    background-position:calc(100% - 16px) 52%,calc(100% - 11px) 52%; background-size:5px 5px,5px 5px; background-repeat:no-repeat}
+  select#week:focus-visible{outline:2px solid var(--green); outline-offset:2px}
+  .wk-count{font-size:11.5px; color:var(--faint)}
+
+  /* summary figures */
+  .summary{display:grid; grid-template-columns:repeat(5,1fr); margin:16px 0 4px; border:1px solid var(--rule)}
+  .fig{padding:15px 18px; border-right:1px solid var(--rule)}
   .fig:last-child{border-right:0}
-  .fig .f-lab{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
-    color:var(--faint); font-weight:600}
-  .fig .f-val{font-family:var(--serif); font-size:29px; line-height:1; margin-top:11px;
-    color:var(--ink); font-weight:600; letter-spacing:-.01em}
+  .fig .f-lab{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:600}
+  .fig .f-val{font-family:var(--serif); font-size:28px; line-height:1; margin-top:11px; color:var(--ink); font-weight:600; letter-spacing:-.01em}
   .fig .f-val .u{font-size:15px; color:var(--ink-2); font-weight:600}
   .fig .f-note{font-size:11.5px; color:var(--faint); margin-top:8px; line-height:1.4}
-  .fig.pos .f-val{color:var(--green)}
-  .fig.neg .f-val{color:var(--brick)}
-  @media (max-width:720px){ .summary{grid-template-columns:repeat(2,1fr)}
-    .fig{border-bottom:1px solid var(--rule)} }
+  .fig.pos .f-val{color:var(--green)} .fig.neg .f-val{color:var(--brick)}
+  @media (max-width:720px){ .summary{grid-template-columns:repeat(2,1fr)} .fig{border-bottom:1px solid var(--rule)} }
 
-  /* at a glance prose */
-  .glance{font-family:var(--serif); font-size:16.5px; line-height:1.62; color:var(--ink);
-    margin:26px 0 4px; max-width:66ch}
+  .glance{font-family:var(--serif); font-size:16px; line-height:1.62; color:var(--ink); margin:24px 0 4px; max-width:68ch}
   .glance b{font-weight:600}
 
-  /* lifecycle line */
-  .life{margin:30px 0 6px; display:flex; align-items:center; gap:0}
+  /* lifecycle */
+  .life{margin:28px 0 6px; display:flex; align-items:center}
   .life .ls{display:flex; flex-direction:column; gap:3px; flex:none}
   .life .ls.mid{text-align:center; align-items:center}
   .life .ls.end{text-align:right; align-items:flex-end}
@@ -94,248 +91,277 @@
   .life .ls .d{font-size:14px; color:var(--ink); font-weight:560}
   .life .ls.end .d{color:var(--green)}
   .life .lc{flex:1; position:relative; height:1px; background:var(--rule-strong); margin:22px 16px 0}
-  .life .lc .cap{position:absolute; left:50%; top:-11px; transform:translateX(-50%);
-    white-space:nowrap; font-size:11px; color:var(--ink-2); background:var(--surface); padding:0 8px}
+  .life .lc .cap{position:absolute; left:50%; top:-11px; transform:translateX(-50%); white-space:nowrap; font-size:11px; color:var(--ink-2); background:var(--surface); padding:0 8px}
   .life .lc.done{background:linear-gradient(90deg,var(--rule-strong),var(--green))}
   @media (max-width:560px){ .life .ls .d{font-size:12.5px} .life .lc{margin:22px 8px 0} }
 
-  /* section label */
-  .sec{margin-top:40px}
-  .sec-lab{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-    border-bottom:1px solid var(--ink); padding-bottom:7px; margin-bottom:0}
-  .sec-lab h2{font-size:12px; letter-spacing:.13em; text-transform:uppercase; font-weight:650;
-    color:var(--ink); margin:0}
-  .sec-lab .n{font-size:11.5px; color:var(--faint)}
+  /* section label + filter */
+  .sec{margin-top:38px}
+  .sec-lab{display:flex; align-items:center; justify-content:space-between; gap:12px; border-bottom:1px solid var(--ink); padding-bottom:7px}
+  .sec-lab h2{font-size:12px; letter-spacing:.13em; text-transform:uppercase; font-weight:650; color:var(--ink); margin:0}
+  .seg{display:inline-flex; border:1px solid var(--rule-strong); border-radius:7px; overflow:hidden}
+  .seg button{background:var(--field); border:0; border-left:1px solid var(--rule-strong); color:var(--ink-2);
+    font-size:11.5px; padding:5px 13px; cursor:pointer; letter-spacing:.02em}
+  .seg button:first-child{border-left:0}
+  .seg button[aria-pressed="true"]{background:var(--ink); color:var(--surface); font-weight:560}
+  .seg button:focus-visible{outline:2px solid var(--green); outline-offset:-2px}
 
-  /* ledger table */
+  /* ledger */
   .ledger-wrap{overflow-x:auto}
   table.ledger{border-collapse:collapse; width:100%; min-width:640px; font-size:13px}
-  .ledger th{text-align:left; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--faint); font-weight:650; padding:10px 10px 8px; border-bottom:1px solid var(--rule-strong)}
+  .ledger th{text-align:left; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:650; padding:11px 10px 8px; border-bottom:1px solid var(--rule-strong)}
   .ledger th.r,.ledger td.r{text-align:right}
   .ledger td{padding:8px 10px; border-bottom:1px solid var(--rule); vertical-align:baseline}
-  .ledger tr:last-child td{border-bottom:0}
   .ledger .id{font-family:var(--mono); font-size:12px; color:var(--ink-2)}
   .ledger .money{font-variant-numeric:tabular-nums; color:var(--ink)}
   .ledger tr.den td{color:var(--brick)}
-  .ledger tr.den .flag{font-size:10px; letter-spacing:.05em; text-transform:uppercase;
-    font-weight:650; color:var(--brick)}
-  .ledger .fn{font-family:var(--serif); font-size:11px; vertical-align:super; color:var(--brick); margin-left:2px}
-  .ledger tfoot td{padding:11px 10px 2px; border-top:2px solid var(--ink); font-weight:640;
-    font-size:13px; color:var(--ink)}
+  .ledger tr.den .flag{font-size:10px; letter-spacing:.05em; text-transform:uppercase; font-weight:650; color:var(--brick)}
+  .ledger tfoot td{padding:11px 10px 2px; border-top:2px solid var(--ink); font-weight:640; font-size:13px; color:var(--ink)}
   .ledger tfoot .lab{font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-2); font-weight:600}
 
   /* exceptions */
-  .exc{margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule)}
-  .exc .item{padding:18px 20px; border-right:1px solid var(--rule)}
+  .exc{margin-top:16px; display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--rule)}
+  .exc .item{padding:17px 20px; border-right:1px solid var(--rule)}
   .exc .item:last-child{border-right:0}
+  .exc.one{grid-template-columns:1fr}
   .exc .x-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px}
   .exc .x-id{font-family:var(--mono); font-size:13px; color:var(--ink); font-weight:600}
   .exc .x-amt{font-family:var(--serif); font-size:18px; color:var(--brick); font-weight:600}
-  .exc .x-code{margin-top:12px; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:600}
+  .exc .x-code{margin-top:11px; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:600}
   .exc .x-mean{font-size:14px; color:var(--ink); margin-top:4px; font-weight:540}
-  .exc .x-act{font-size:12.5px; color:var(--ink-2); margin-top:12px; padding-top:11px;
-    border-top:1px solid var(--rule); line-height:1.5}
+  .exc .x-act{font-size:12.5px; color:var(--ink-2); margin-top:11px; padding-top:11px; border-top:1px solid var(--rule); line-height:1.5}
   .exc .x-act b{color:var(--green); font-weight:640}
+  .exc .none{padding:18px 20px; font-size:13.5px; color:var(--ink-2); font-family:var(--serif)}
   @media (max-width:640px){ .exc{grid-template-columns:1fr} .exc .item{border-right:0; border-bottom:1px solid var(--rule)} }
 
-  /* history chart */
-  .hist{margin-top:18px}
+  /* history */
+  .hist{margin-top:16px}
   .hist svg{display:block; width:100%; height:auto}
   .hist .cap{font-size:11.5px; color:var(--faint); margin-top:10px; display:flex; gap:20px; flex-wrap:wrap}
   .hist .cap span{display:inline-flex; align-items:center; gap:7px}
   .hist .cap i{width:16px; height:3px; display:inline-block}
   .hist .cap i.mk{width:8px; height:8px; border-radius:50%}
 
-  /* footnotes */
-  .notes{margin-top:38px; border-top:1px solid var(--rule); padding-top:16px;
-    font-size:11.5px; color:var(--faint); line-height:1.7; columns:2; column-gap:40px}
-  .notes p{margin:0 0 6px; break-inside:avoid}
-  .notes .fm{font-family:var(--serif); color:var(--brick); vertical-align:super; font-size:10px; margin-right:3px}
-  .notes b{color:var(--ink-2); font-weight:600}
-  .sign{margin-top:22px; font-size:12px; color:var(--ink-2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
+  /* footer */
+  .notes{margin-top:36px; border-top:1px solid var(--rule); padding-top:16px; font-size:11.5px; color:var(--faint); line-height:1.7; columns:2; column-gap:40px}
+  .notes p{margin:0 0 6px; break-inside:avoid} .notes b{color:var(--ink-2); font-weight:600}
+  .sign{margin-top:20px; font-size:12px; color:var(--ink-2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
   .sign .r{color:var(--faint)}
-  @media (max-width:640px){ .notes{columns:1} .sheet{padding:30px 24px} .mast h1{font-size:26px} }
+  @media (max-width:640px){ .notes{columns:1} .sheet{padding:28px 22px} .mast h1{font-size:25px} }
 </style>
 </head>
 <body>
 <main class="sheet">
 
   <div class="mast">
-    <div>
-      <div class="org">Peniel Healthcare · Ohio Department of Medicaid</div>
-      <h1>Weekly Remittance Statement</h1>
-      <p class="lede">Personal-care claims settled in the week's remittance — filed, adjudicated, and paid.</p>
+    <div class="brand">
+      <div class="mono-mark">PH</div>
+      <div>
+        <div class="org" id="org"></div>
+        <h1>Weekly Remittance Statement</h1>
+        <div class="addr" id="addr"></div>
+      </div>
     </div>
     <div class="meta">
-      <div class="row"><span class="m-lab">Paid week</span><span class="m-val mono">7 July 2026</span></div>
-      <div class="row"><span class="m-lab">Service code</span><span class="m-val">T1019</span></div>
-      <div class="row"><span class="m-lab">Claims</span><span class="m-val mono">28</span></div>
+      <div class="row"><span class="m-lab">Statement</span><span class="m-val mono" id="ref"></span></div>
+      <div class="row"><span class="m-lab">Prepared by</span><span class="m-val">Richel Attafuah, Billing</span></div>
       <div class="conf">Confidential · Internal</div>
+      <button class="theme-btn" id="theme" type="button" aria-label="Switch colour theme"></button>
     </div>
   </div>
   <hr class="rule-2"><hr class="rule-2 thin">
 
-  <div class="summary">
-    <div class="fig"><div class="f-lab">Claims settled</div><div class="f-val tnum">28</div><div class="f-note">26 paid · 2 denied</div></div>
-    <div class="fig pos"><div class="f-lab">Amount paid</div><div class="f-val tnum"><span class="u">$</span>17,847</div><div class="f-note">disbursed 7 Jul</div></div>
-    <div class="fig neg"><div class="f-lab">Amount denied</div><div class="f-val tnum"><span class="u">$</span>4,648</div><div class="f-note">2 claims held back</div></div>
-    <div class="fig"><div class="f-lab">Denial rate</div><div class="f-val tnum">7.1<span class="u">%</span></div><div class="f-note">2 of 28 claims</div></div>
-    <div class="fig"><div class="f-lab">Turnaround</div><div class="f-val tnum">15<span class="u"> days</span></div><div class="f-note">filed to paid, median</div></div>
+  <div class="controls">
+    <div class="wk-pick">
+      <label for="week">Paid week</label>
+      <select id="week"></select>
+    </div>
+    <span class="wk-count" id="wkcount"></span>
   </div>
 
-  <p class="glance">In the remittance paid <b>7 July</b>, Ohio Medicaid settled <b>26 of 28</b> personal-care claims for <b>$17,847</b> across 616 verified hours. Two claims were denied: an authorization gap worth <b>$2,433</b> that can be corrected and resubmitted, and a duplicate of a claim already paid. Claims cleared a median of <b>15 days</b> after filing.</p>
+  <div class="summary" id="summary"></div>
+  <p class="glance" id="glance"></p>
 
-  <div class="life">
-    <div class="ls"><div class="t">Filed</div><div class="d">Jun 18–22</div></div>
-    <div class="lc"><span class="cap">median 15 days</span></div>
-    <div class="ls mid"><div class="t">Adjudicated</div><div class="d">Ohio Medicaid</div></div>
-    <div class="lc done"><span class="cap">settled</span></div>
-    <div class="ls end"><div class="t">Paid</div><div class="d">Jul 7</div></div>
-  </div>
+  <div class="life" id="life"></div>
 
   <div class="sec">
-    <div class="sec-lab"><h2>Claims in this remittance</h2><span class="n">by amount · patient labels masked</span></div>
+    <div class="sec-lab">
+      <h2>Claims in this remittance</h2>
+      <div class="seg" role="group" aria-label="Filter claims">
+        <button data-f="all" aria-pressed="true" type="button">All</button>
+        <button data-f="PAID" aria-pressed="false" type="button">Paid</button>
+        <button data-f="DENIED" aria-pressed="false" type="button">Denied</button>
+      </div>
+    </div>
     <div class="ledger-wrap">
       <table class="ledger">
-        <thead><tr>
-          <th>Recipient</th><th>Filed</th><th>Service period</th>
-          <th class="r">Hours</th><th class="r">Billed</th><th class="r">Paid</th><th>Outcome</th>
-        </tr></thead>
+        <thead><tr><th>Recipient</th><th>Filed</th><th>Service period</th><th class="r">Hours</th><th class="r">Billed</th><th class="r">Paid</th><th>Outcome</th></tr></thead>
         <tbody id="rows"></tbody>
-        <tfoot><tr>
-          <td class="lab" colspan="3">Totals — 28 claims</td>
-          <td class="r money" id="t-hours"></td>
-          <td class="r money" id="t-billed"></td>
-          <td class="r money" id="t-paid"></td>
-          <td></td>
-        </tr></tfoot>
+        <tfoot><tr><td class="lab" colspan="3" id="t-lab"></td><td class="r money" id="t-hours"></td><td class="r money" id="t-billed"></td><td class="r money" id="t-paid"></td><td></td></tr></tfoot>
       </table>
     </div>
   </div>
 
-  <div class="sec">
-    <div class="sec-lab"><h2>Exceptions — the two denials</h2><span class="n">$4,648 held back</span></div>
-    <div class="exc" id="exc"></div>
+  <div class="sec" id="exc-sec">
+    <div class="sec-lab"><h2>Exceptions — denials</h2><span class="n" id="exc-note"></span></div>
+    <div id="exc"></div>
   </div>
 
   <div class="sec">
     <div class="sec-lab"><h2>Eight-week history</h2><span class="n">amount paid per weekly remittance</span></div>
-    <div class="hist">
-      <div id="chart"></div>
+    <div class="hist"><div id="chart"></div>
       <div class="cap">
-        <span><i style="background:var(--green)"></i> This week</span>
-        <span><i style="background:var(--rule-strong)"></i> Prior weeks</span>
+        <span><i style="background:var(--green)"></i> Selected week</span>
+        <span><i style="background:var(--rule-strong)"></i> Other weeks</span>
         <span><i class="mk" style="background:var(--brick)"></i> Week included denials</span>
       </div>
     </div>
   </div>
 
-  <div class="notes" id="notes">
-    <p><span class="fm">†</span><b>Source.</b> Ohio Medicaid Provider Remittance Advice (PNM), remittance dated 7 July 2026, service code T1019 personal care.</p>
-    <p><b>Dates.</b> The paid date is the remittance date. The filed date is taken from the claim control number. Service periods are the visit dates carried on each claim.</p>
-    <p><b>Figures.</b> Billed and paid are the adjudicated amounts on the remittance. A denied claim pays nothing until it is corrected and resubmitted. Hours are verified fifteen-minute units.</p>
+  <div class="notes">
+    <p><b>Source.</b> Ohio Medicaid Provider Remittance Advice (PNM), service code T1019 personal care. One remittance is one weekly payment.</p>
+    <p><b>Dates.</b> The paid date is the remittance date; the filed date is taken from the claim control number; service periods are the visit dates on each claim.</p>
+    <p><b>Figures.</b> Billed and paid are the adjudicated amounts. A denied claim pays nothing until corrected and resubmitted. Hours are verified fifteen-minute units.</p>
     <p><b>Privacy.</b> Recipients are shown as masked labels; no names or Medicaid identifiers appear on this statement. Identified detail is held in Peniel's records.</p>
   </div>
   <div class="sign">
-    <span>Prepared for management · Peniel Healthcare billing</span>
-    <span class="r">A fixed record of one remittance week.</span>
+    <span>Peniel Healthcare · Billing office</span>
+    <span class="r">Figures reconcile to the remittance to the cent.</span>
   </div>
-
 </main>
 
 <script>
-const DATA = {"rows":[
-{"patient":"P-28","filed":"18 Jun","service":"20 May – 13 Jun","status":"DENIED","hours":84.0,"billed":2432.64,"paidamt":0.0,"reason":"22","reason_txt":"May be covered by another payer — coordination of benefits","remark":"M62","fn":"‡"},
-{"patient":"P-04","filed":"22 Jun","service":"18 May – 20 Jun","status":"DENIED","hours":76.5,"billed":2215.44,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702","fn":"§"},
-{"patient":"P-15","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":57.25,"billed":1657.96,"paidamt":1657.96},
-{"patient":"P-12","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":49.75,"billed":1440.76,"paidamt":1440.76},
-{"patient":"P-08","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":43.25,"billed":1252.52,"paidamt":1252.52},
-{"patient":"P-25","filed":"22 Jun","service":"14 – 19 Jun","status":"PAID","hours":36.5,"billed":1057.04,"paidamt":1057.04},
-{"patient":"P-18","filed":"22 Jun","service":"15 – 19 Jun","status":"PAID","hours":36.0,"billed":1042.56,"paidamt":1042.56},
-{"patient":"P-02","filed":"22 Jun","service":"15 – 20 Jun","status":"PAID","hours":31.5,"billed":912.24,"paidamt":912.24},
-{"patient":"P-19","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":27.75,"billed":803.64,"paidamt":803.64},
-{"patient":"P-23","filed":"22 Jun","service":"15 – 19 Jun","status":"PAID","hours":25.25,"billed":731.24,"paidamt":731.24},
-{"patient":"P-11","filed":"22 Jun","service":"15 – 19 Jun","status":"PAID","hours":25.0,"billed":724.0,"paidamt":724.0},
-{"patient":"P-27","filed":"22 Jun","service":"14 – 19 Jun","status":"PAID","hours":24.5,"billed":709.52,"paidamt":709.52},
-{"patient":"P-10","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":24.25,"billed":702.28,"paidamt":702.28},
-{"patient":"P-20","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":23.5,"billed":680.56,"paidamt":680.56},
-{"patient":"P-09","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":22.5,"billed":651.6,"paidamt":651.6},
-{"patient":"P-05","filed":"22 Jun","service":"15 – 19 Jun","status":"PAID","hours":21.25,"billed":615.4,"paidamt":615.4},
-{"patient":"P-21","filed":"22 Jun","service":"15 – 19 Jun","status":"PAID","hours":20.5,"billed":593.68,"paidamt":593.68},
-{"patient":"P-16","filed":"22 Jun","service":"14 – 20 Jun","status":"PAID","hours":19.25,"billed":557.48,"paidamt":557.48},
-{"patient":"P-01","filed":"22 Jun","service":"14 – 19 Jun","status":"PAID","hours":19.0,"billed":550.24,"paidamt":550.24},
-{"patient":"P-17","filed":"22 Jun","service":"15 – 18 Jun","status":"PAID","hours":18.75,"billed":543.0,"paidamt":543.0},
-{"patient":"P-13","filed":"22 Jun","service":"15 – 20 Jun","status":"PAID","hours":17.0,"billed":492.32,"paidamt":492.32},
-{"patient":"P-22","filed":"22 Jun","service":"15 – 19 Jun","status":"PAID","hours":15.25,"billed":441.64,"paidamt":441.64},
-{"patient":"P-06","filed":"22 Jun","service":"16 – 19 Jun","status":"PAID","hours":13.0,"billed":376.48,"paidamt":376.48},
-{"patient":"P-07","filed":"22 Jun","service":"15 – 18 Jun","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76},
-{"patient":"P-14","filed":"22 Jun","service":"17 – 19 Jun","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52},
-{"patient":"P-24","filed":"22 Jun","service":"17 – 18 Jun","status":"PAID","hours":8.75,"billed":253.4,"paidamt":253.4},
-{"patient":"P-03","filed":"22 Jun","service":"16 – 18 Jun","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68},
-{"patient":"P-26","filed":"22 Jun","service":"15 Jun","status":"PAID","hours":4.25,"billed":123.08,"paidamt":123.08}
-],
-"trend":[
-{"week":"May 14","paid":16753.36,"denied":0},{"week":"May 21","paid":18433.04,"denied":4},
-{"week":"May 29","paid":19287.36,"denied":0},{"week":"Jun 4","paid":19091.88,"denied":1},
-{"week":"Jun 11","paid":4706.0,"denied":0},{"week":"Jun 18","paid":15357.8,"denied":2},
-{"week":"Jun 25","paid":40848.08,"denied":2},{"week":"Jul 7","paid":17846.6,"denied":2}
-]};
-
+const DATA = {"weeks":[{"remit":"14 May 2026","remit_short":"May 14","iso":"2026-05-14","ref":"202605141083452221","claims":28,"paid_n":28,"denied_n":0,"total_paid":16753.36,"total_billed":18281.0,"denied_amt":0.0,"denial_rate":0.0,"hours":631.25,"turn_med":10,"turn_min":10,"turn_max":10,"filed_lo":"4 May","filed_hi":"4 May","rows":[{"patient":"P-16","filed":"4 May","service":"27 Apr \u2013 2 May","status":"PAID","hours":48.75,"billed":1411.8,"paidamt":1411.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"4 May","service":"26 Apr \u2013 2 May","status":"PAID","hours":43.75,"billed":1267.0,"paidamt":1267.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-19","filed":"4 May","service":"20 Apr \u2013 30 Apr","status":"PAID","hours":40.25,"billed":1165.64,"paidamt":586.44,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-14","filed":"4 May","service":"26 Apr \u2013 2 May","status":"PAID","hours":36.25,"billed":1049.8,"paidamt":1049.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-21","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":35.0,"billed":1013.6,"paidamt":1013.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-03","filed":"4 May","service":"27 Apr \u2013 2 May","status":"PAID","hours":31.0,"billed":897.76,"paidamt":897.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-12","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":29.25,"billed":847.08,"paidamt":847.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"4 May","service":"27 Apr \u2013 2 May","status":"PAID","hours":26.75,"billed":774.68,"paidamt":774.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-26","filed":"4 May","service":"27 Apr \u2013 2 May","status":"PAID","hours":25.5,"billed":738.48,"paidamt":738.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-07","filed":"4 May","service":"27 Apr \u2013 2 May","status":"PAID","hours":25.5,"billed":738.48,"paidamt":492.32,"reason":"177","reason_txt":"Recipient has not met eligibility requirements","remark":"N650"},{"patient":"P-25","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":25.25,"billed":731.24,"paidamt":731.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":23.5,"billed":680.56,"paidamt":680.56,"reason":"","reason_txt":"","remark":""},{"patient":"P-27","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":23.25,"billed":673.32,"paidamt":673.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-11","filed":"4 May","service":"26 Apr \u2013 2 May","status":"PAID","hours":22.25,"billed":644.36,"paidamt":181.0,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-02","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"4 May","service":"27 Apr \u2013 30 Apr","status":"PAID","hours":18.75,"billed":543.0,"paidamt":543.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":18.5,"billed":535.76,"paidamt":535.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":16.0,"billed":463.36,"paidamt":463.36,"reason":"","reason_txt":"","remark":""},{"patient":"P-24","filed":"4 May","service":"27 Apr \u2013 1 May","status":"PAID","hours":15.0,"billed":434.4,"paidamt":434.4,"reason":"","reason_txt":"","remark":""},{"patient":"P-17","filed":"4 May","service":"26 Apr \u2013 29 Apr","status":"PAID","hours":12.5,"billed":362.0,"paidamt":362.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-28","filed":"4 May","service":"27 Apr \u2013 2 May","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-05","filed":"4 May","service":"27 Apr \u2013 29 Apr","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"4 May","service":"27 Apr \u2013 30 Apr","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"4 May","service":"28 Apr \u2013 1 May","status":"PAID","hours":12.0,"billed":347.52,"paidamt":231.68,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N130"},{"patient":"P-15","filed":"4 May","service":"26 Apr \u2013 27 Apr","status":"PAID","hours":8.25,"billed":238.92,"paidamt":115.84,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-04","filed":"4 May","service":"28 Apr \u2013 30 Apr","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"4 May","service":"29 Apr \u2013 30 Apr","status":"PAID","hours":7.5,"billed":217.2,"paidamt":217.2,"reason":"","reason_txt":"","remark":""}]},{"remit":"21 May 2026","remit_short":"May 21","iso":"2026-05-21","ref":"202605211083452221","claims":33,"paid_n":29,"denied_n":4,"total_paid":18433.04,"total_billed":21546.24,"denied_amt":1419.04,"denial_rate":12.1,"hours":694.25,"turn_med":8,"turn_min":8,"turn_max":9,"filed_lo":"12 May","filed_hi":"13 May","rows":[{"patient":"P-22","filed":"13 May","service":"6 May \u2013 8 May","status":"DENIED","hours":12.25,"billed":354.76,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-22","filed":"13 May","service":"6 May \u2013 8 May","status":"DENIED","hours":12.25,"billed":354.76,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-22","filed":"13 May","service":"6 May \u2013 8 May","status":"DENIED","hours":12.25,"billed":354.76,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-22","filed":"13 May","service":"6 May \u2013 8 May","status":"DENIED","hours":12.25,"billed":354.76,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-17","filed":"13 May","service":"3 May \u2013 9 May","status":"PAID","hours":57.75,"billed":1672.44,"paidamt":1433.52,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N56"},{"patient":"P-29","filed":"13 May","service":"26 Apr \u2013 9 May","status":"PAID","hours":56.25,"billed":1629.0,"paidamt":1397.32,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-15","filed":"13 May","service":"27 Apr \u2013 8 May","status":"PAID","hours":44.75,"billed":1295.96,"paidamt":1006.36,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-11","filed":"13 May","service":"3 May \u2013 9 May","status":"PAID","hours":43.75,"billed":1267.0,"paidamt":1267.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-12","filed":"13 May","service":"26 Apr \u2013 9 May","status":"PAID","hours":37.5,"billed":1086.0,"paidamt":535.76,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-21","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":36.25,"billed":1049.8,"paidamt":839.84,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-02","filed":"12 May","service":"24 Apr \u2013 8 May","status":"PAID","hours":30.25,"billed":876.04,"paidamt":724.0,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-08","filed":"13 May","service":"3 May \u2013 9 May","status":"PAID","hours":29.5,"billed":854.32,"paidamt":854.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-25","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":26.25,"billed":760.2,"paidamt":760.2,"reason":"","reason_txt":"","remark":""},{"patient":"P-26","filed":"13 May","service":"4 May \u2013 9 May","status":"PAID","hours":26.0,"billed":752.96,"paidamt":752.96,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"13 May","service":"4 May \u2013 9 May","status":"PAID","hours":25.5,"billed":738.48,"paidamt":738.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-19","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":23.5,"billed":680.56,"paidamt":680.56,"reason":"","reason_txt":"","remark":""},{"patient":"P-27","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":23.0,"billed":666.08,"paidamt":666.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":22.5,"billed":651.6,"paidamt":651.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"13 May","service":"4 May \u2013 7 May","status":"PAID","hours":20.25,"billed":608.16,"paidamt":586.44,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-03","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-07","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"13 May","service":"4 May \u2013 7 May","status":"PAID","hours":20.25,"billed":586.44,"paidamt":586.44,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"12 May","service":"3 May \u2013 8 May","status":"PAID","hours":19.0,"billed":550.24,"paidamt":550.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-16","filed":"13 May","service":"4 May \u2013 9 May","status":"PAID","hours":16.25,"billed":470.6,"paidamt":470.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":16.25,"billed":470.6,"paidamt":470.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-24","filed":"13 May","service":"4 May \u2013 8 May","status":"PAID","hours":15.25,"billed":441.64,"paidamt":441.64,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"13 May","service":"6 May \u2013 8 May","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"13 May","service":"4 May \u2013 7 May","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"13 May","service":"4 May \u2013 6 May","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-05","filed":"13 May","service":"5 May \u2013 7 May","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-14","filed":"13 May","service":"4 May \u2013 5 May","status":"PAID","hours":7.0,"billed":202.72,"paidamt":202.72,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"13 May","service":"4 May","status":"PAID","hours":7.0,"billed":202.72,"paidamt":202.72,"reason":"","reason_txt":"","remark":""},{"patient":"P-28","filed":"12 May","service":"9 May","status":"PAID","hours":4.0,"billed":115.84,"paidamt":115.84,"reason":"","reason_txt":"","remark":""}]},{"remit":"29 May 2026","remit_short":"May 29","iso":"2026-05-29","ref":"202605291083452221","claims":30,"paid_n":30,"denied_n":0,"total_paid":19287.36,"total_billed":19439.4,"denied_amt":0.0,"denial_rate":0.0,"hours":670.25,"turn_med":11,"turn_min":11,"turn_max":11,"filed_lo":"18 May","filed_hi":"18 May","rows":[{"patient":"P-17","filed":"18 May","service":"11 May \u2013 16 May","status":"PAID","hours":49.0,"billed":1419.04,"paidamt":1419.04,"reason":"","reason_txt":"","remark":""},{"patient":"P-11","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":43.75,"billed":1267.0,"paidamt":1267.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-14","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":43.25,"billed":1252.52,"paidamt":1252.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":36.0,"billed":1042.56,"paidamt":1042.56,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"18 May","service":"11 May \u2013 16 May","status":"PAID","hours":30.5,"billed":883.28,"paidamt":883.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-24","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":30.0,"billed":868.8,"paidamt":868.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":29.5,"billed":854.32,"paidamt":854.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-27","filed":"18 May","service":"11 May \u2013 16 May","status":"PAID","hours":29.25,"billed":847.08,"paidamt":847.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-30","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":28.0,"billed":810.88,"paidamt":810.88,"reason":"","reason_txt":"","remark":""},{"patient":"P-26","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":25.5,"billed":738.48,"paidamt":738.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":25.0,"billed":724.0,"paidamt":600.92,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N56"},{"patient":"P-19","filed":"18 May","service":"11 May \u2013 14 May","status":"PAID","hours":23.75,"billed":687.8,"paidamt":687.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-28","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":23.25,"billed":673.32,"paidamt":673.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":22.0,"billed":637.12,"paidamt":637.12,"reason":"","reason_txt":"","remark":""},{"patient":"P-12","filed":"18 May","service":"10 May \u2013 16 May","status":"PAID","hours":22.0,"billed":637.12,"paidamt":637.12,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":20.0,"billed":608.16,"paidamt":579.2,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-07","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-03","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":20.75,"billed":600.92,"paidamt":600.92,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"18 May","service":"11 May \u2013 14 May","status":"PAID","hours":20.5,"billed":593.68,"paidamt":593.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":18.5,"billed":535.76,"paidamt":535.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"18 May","service":"11 May \u2013 16 May","status":"PAID","hours":17.0,"billed":492.32,"paidamt":492.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":15.75,"billed":456.12,"paidamt":456.12,"reason":"","reason_txt":"","remark":""},{"patient":"P-25","filed":"18 May","service":"11 May \u2013 15 May","status":"PAID","hours":15.0,"billed":434.4,"paidamt":434.4,"reason":"","reason_txt":"","remark":""},{"patient":"P-29","filed":"18 May","service":"12 May \u2013 16 May","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"18 May","service":"11 May \u2013 14 May","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"18 May","service":"13 May \u2013 15 May","status":"PAID","hours":10.25,"billed":296.84,"paidamt":296.84,"reason":"","reason_txt":"","remark":""},{"patient":"P-05","filed":"18 May","service":"12 May \u2013 14 May","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-15","filed":"18 May","service":"15 May \u2013 16 May","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-16","filed":"18 May","service":"12 May \u2013 14 May","status":"PAID","hours":7.5,"billed":217.2,"paidamt":217.2,"reason":"","reason_txt":"","remark":""},{"patient":"P-21","filed":"18 May","service":"12 May","status":"PAID","hours":3.0,"billed":86.88,"paidamt":86.88,"reason":"","reason_txt":"","remark":""}]},{"remit":"4 June 2026","remit_short":"Jun 4","iso":"2026-06-04","ref":"202606041083452221","claims":31,"paid_n":30,"denied_n":1,"total_paid":19091.88,"total_billed":19779.68,"denied_amt":347.52,"denial_rate":3.2,"hours":668.5,"turn_med":10,"turn_min":10,"turn_max":10,"filed_lo":"25 May","filed_hi":"25 May","rows":[{"patient":"P-26","filed":"25 May","service":"20 Oct \u2013 22 Oct","status":"DENIED","hours":12.0,"billed":347.52,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-17","filed":"25 May","service":"18 May \u2013 23 May","status":"PAID","hours":48.75,"billed":1411.8,"paidamt":1411.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-15","filed":"25 May","service":"17 May \u2013 23 May","status":"PAID","hours":45.0,"billed":1303.2,"paidamt":1158.4,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-11","filed":"25 May","service":"17 May \u2013 23 May","status":"PAID","hours":43.25,"billed":1252.52,"paidamt":1252.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-21","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":35.75,"billed":1035.32,"paidamt":1035.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-05","filed":"25 May","service":"18 May \u2013 23 May","status":"PAID","hours":30.5,"billed":883.28,"paidamt":883.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"25 May","service":"18 May \u2013 23 May","status":"PAID","hours":30.0,"billed":868.8,"paidamt":868.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"25 May","service":"17 May \u2013 23 May","status":"PAID","hours":29.25,"billed":847.08,"paidamt":724.0,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-14","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":29.25,"billed":847.08,"paidamt":847.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"25 May","service":"17 May \u2013 23 May","status":"PAID","hours":28.75,"billed":832.6,"paidamt":832.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-27","filed":"25 May","service":"17 May \u2013 22 May","status":"PAID","hours":25.5,"billed":738.48,"paidamt":738.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-25","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":25.25,"billed":731.24,"paidamt":731.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-19","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":23.25,"billed":673.32,"paidamt":673.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-28","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":23.0,"billed":666.08,"paidamt":666.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"25 May","service":"19 May \u2013 23 May","status":"PAID","hours":21.25,"billed":666.08,"paidamt":615.4,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-12","filed":"25 May","service":"17 May \u2013 23 May","status":"PAID","hours":21.75,"billed":629.88,"paidamt":629.88,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"25 May","service":"19 May \u2013 22 May","status":"PAID","hours":21.0,"billed":629.88,"paidamt":608.16,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-07","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"25 May","service":"18 May \u2013 21 May","status":"PAID","hours":20.5,"billed":593.68,"paidamt":593.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-30","filed":"25 May","service":"17 May \u2013 22 May","status":"PAID","hours":20.25,"billed":586.44,"paidamt":586.44,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":20.25,"billed":586.44,"paidamt":586.44,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"25 May","service":"18 May \u2013 22 May","status":"PAID","hours":15.75,"billed":456.12,"paidamt":456.12,"reason":"","reason_txt":"","remark":""},{"patient":"P-29","filed":"25 May","service":"18 May \u2013 23 May","status":"PAID","hours":12.5,"billed":362.0,"paidamt":362.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"25 May","service":"17 May \u2013 23 May","status":"PAID","hours":12.5,"billed":362.0,"paidamt":362.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-26","filed":"25 May","service":"20 May \u2013 22 May","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"25 May","service":"18 May \u2013 21 May","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-03","filed":"25 May","service":"20 May \u2013 22 May","status":"PAID","hours":10.0,"billed":289.6,"paidamt":289.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-24","filed":"25 May","service":"18 May \u2013 20 May","status":"PAID","hours":9.0,"billed":260.64,"paidamt":260.64,"reason":"","reason_txt":"","remark":""},{"patient":"P-16","filed":"25 May","service":"18 May \u2013 21 May","status":"PAID","hours":8.25,"billed":238.92,"paidamt":238.92,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"25 May","service":"19 May \u2013 21 May","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"25 May","service":"21 May","status":"PAID","hours":5.0,"billed":144.8,"paidamt":144.8,"reason":"","reason_txt":"","remark":""}]},{"remit":"11 June 2026","remit_short":"Jun 11","iso":"2026-06-11","ref":"202606111083452221","claims":10,"paid_n":10,"denied_n":0,"total_paid":4706.0,"total_billed":5256.24,"denied_amt":0.0,"denial_rate":0.0,"hours":181.0,"turn_med":9,"turn_min":8,"turn_max":10,"filed_lo":"1 Jun","filed_hi":"3 Jun","rows":[{"patient":"P-06","filed":"3 Jun","service":"24 May \u2013 30 May","status":"PAID","hours":43.25,"billed":1252.52,"paidamt":1252.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"1 Jun","service":"24 May \u2013 30 May","status":"PAID","hours":23.5,"billed":687.8,"paidamt":680.56,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-09","filed":"3 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":23.75,"billed":687.8,"paidamt":687.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"3 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":20.75,"billed":600.92,"paidamt":600.92,"reason":"","reason_txt":"","remark":""},{"patient":"P-07","filed":"1 Jun","service":"26 May \u2013 29 May","status":"PAID","hours":16.0,"billed":463.36,"paidamt":463.36,"reason":"","reason_txt":"","remark":""},{"patient":"P-03","filed":"1 Jun","service":"22 May \u2013 28 May","status":"PAID","hours":15.25,"billed":441.64,"paidamt":152.04,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-10","filed":"1 Jun","service":"21 May \u2013 25 May","status":"PAID","hours":12.5,"billed":362.0,"paidamt":115.84,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-05","filed":"3 Jun","service":"25 May \u2013 28 May","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"3 Jun","service":"26 May \u2013 28 May","status":"PAID","hours":8.75,"billed":253.4,"paidamt":253.4,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"1 Jun","service":"25 May","status":"PAID","hours":5.0,"billed":152.04,"paidamt":144.8,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""}]},{"remit":"18 June 2026","remit_short":"Jun 18","iso":"2026-06-18","ref":"202606181083452221","claims":23,"paid_n":21,"denied_n":2,"total_paid":15357.8,"total_billed":17093.64,"denied_amt":818.12,"denial_rate":8.7,"hours":562.0,"turn_med":10,"turn_min":8,"turn_max":10,"filed_lo":"8 Jun","filed_hi":"10 Jun","rows":[{"patient":"P-11","filed":"8 Jun","service":"26 May \u2013 29 May","status":"DENIED","hours":16.0,"billed":463.36,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-07","filed":"8 Jun","service":"25 May \u2013 28 May","status":"DENIED","hours":12.25,"billed":354.76,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-03","filed":"8 Jun","service":"18 May \u2013 6 Jun","status":"PAID","hours":51.0,"billed":1476.96,"paidamt":1353.88,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-12","filed":"8 Jun","service":"24 May \u2013 30 May","status":"PAID","hours":49.25,"billed":1426.28,"paidamt":1426.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"10 Jun","service":"25 May \u2013 30 May","status":"PAID","hours":48.75,"billed":1411.8,"paidamt":1411.8,"reason":"","reason_txt":"","remark":""},{"patient":"P-21","filed":"8 Jun","service":"24 May \u2013 30 May","status":"PAID","hours":37.0,"billed":1071.52,"paidamt":1071.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-16","filed":"10 Jun","service":"18 May \u2013 29 May","status":"PAID","hours":36.5,"billed":1057.04,"paidamt":876.04,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-01","filed":"10 Jun","service":"25 May \u2013 30 May","status":"PAID","hours":31.5,"billed":912.24,"paidamt":912.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"8 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":29.25,"billed":847.08,"paidamt":847.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-17","filed":"8 Jun","service":"24 May \u2013 30 May","status":"PAID","hours":29.0,"billed":839.84,"paidamt":839.84,"reason":"","reason_txt":"","remark":""},{"patient":"P-15","filed":"10 Jun","service":"26 May \u2013 29 May","status":"PAID","hours":28.25,"billed":818.12,"paidamt":818.12,"reason":"","reason_txt":"","remark":""},{"patient":"P-19","filed":"8 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":25.0,"billed":724.0,"paidamt":724.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"10 Jun","service":"25 May \u2013 30 May","status":"PAID","hours":24.25,"billed":702.28,"paidamt":702.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"8 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":23.0,"billed":666.08,"paidamt":666.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"8 Jun","service":"24 May \u2013 30 May","status":"PAID","hours":21.75,"billed":629.88,"paidamt":16.24,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-05","filed":"8 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-14","filed":"8 Jun","service":"25 May \u2013 28 May","status":"PAID","hours":20.25,"billed":586.44,"paidamt":586.44,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"8 Jun","service":"24 May \u2013 29 May","status":"PAID","hours":20.25,"billed":586.44,"paidamt":586.44,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"10 Jun","service":"26 May \u2013 29 May","status":"PAID","hours":17.0,"billed":492.32,"paidamt":492.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"10 Jun","service":"25 May \u2013 28 May","status":"PAID","hours":16.0,"billed":463.36,"paidamt":463.36,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"8 Jun","service":"25 May \u2013 29 May","status":"PAID","hours":15.25,"billed":441.64,"paidamt":441.64,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"10 Jun","service":"27 May \u2013 29 May","status":"PAID","hours":9.75,"billed":282.36,"paidamt":282.36,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"8 Jun","service":"26 May \u2013 28 May","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""}]},{"remit":"25 June 2026","remit_short":"Jun 25","iso":"2026-06-25","ref":"202606251083452221","claims":44,"paid_n":42,"denied_n":2,"total_paid":40848.08,"total_billed":46929.68,"denied_amt":2649.84,"denial_rate":4.5,"hours":1573.5,"turn_med":8,"turn_min":8,"turn_max":24,"filed_lo":"1 Jun","filed_hi":"17 Jun","rows":[{"patient":"P-16","filed":"17 Jun","service":"24 May \u2013 30 May","status":"DENIED","hours":49.25,"billed":1426.28,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-07","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"DENIED","hours":42.25,"billed":1223.56,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-16","filed":"17 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":99.75,"billed":2888.76,"paidamt":2888.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-19","filed":"17 Jun","service":"1 Jun \u2013 13 Jun","status":"PAID","hours":97.75,"billed":2830.84,"paidamt":2830.84,"reason":"","reason_txt":"","remark":""},{"patient":"P-11","filed":"17 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":87.25,"billed":2526.76,"paidamt":2526.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-30","filed":"17 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":73.25,"billed":2121.32,"paidamt":2121.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":72.0,"billed":2085.12,"paidamt":2085.12,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"17 Jun","service":"18 May \u2013 13 Jun","status":"PAID","hours":63.75,"billed":1846.2,"paidamt":123.08,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-24","filed":"17 Jun","service":"1 Jun \u2013 13 Jun","status":"PAID","hours":62.25,"billed":1802.76,"paidamt":1802.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-33","filed":"17 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":56.25,"billed":1629.0,"paidamt":1629.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-14","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":81.75,"billed":1520.4,"paidamt":1317.68,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-28","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":50.5,"billed":1462.48,"paidamt":1462.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-25","filed":"17 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":49.0,"billed":1419.04,"paidamt":1419.04,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"15 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":47.5,"billed":1375.6,"paidamt":1375.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-31","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":46.0,"billed":1332.16,"paidamt":1332.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"17 Jun","service":"1 Jun \u2013 17 Jun","status":"PAID","hours":44.75,"billed":1295.96,"paidamt":1172.88,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N56"},{"patient":"P-12","filed":"17 Jun","service":"31 May \u2013 13 Jun","status":"PAID","hours":44.5,"billed":1288.72,"paidamt":1194.6,"reason":"45","reason_txt":"Charge exceeds the fee schedule or maximum allowable","remark":""},{"patient":"P-21","filed":"17 Jun","service":"1 Jun \u2013 11 Jun","status":"PAID","hours":42.25,"billed":1223.56,"paidamt":1223.56,"reason":"","reason_txt":"","remark":""},{"patient":"P-07","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":42.25,"billed":1223.56,"paidamt":615.4,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-26","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":41.75,"billed":1209.08,"paidamt":1209.08,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"17 Jun","service":"1 Jun \u2013 11 Jun","status":"PAID","hours":41.25,"billed":1194.6,"paidamt":1194.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"17 Jun","service":"8 Jun \u2013 13 Jun","status":"PAID","hours":31.0,"billed":897.76,"paidamt":897.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-04","filed":"12 Jun","service":"1 Jun \u2013 6 Jun","status":"PAID","hours":30.5,"billed":883.28,"paidamt":883.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-27","filed":"17 Jun","service":"1 Jun \u2013 12 Jun","status":"PAID","hours":30.25,"billed":876.04,"paidamt":781.92,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-29","filed":"17 Jun","service":"1 Jun \u2013 11 Jun","status":"PAID","hours":28.0,"billed":810.88,"paidamt":810.88,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"12 Jun","service":"31 May \u2013 5 Jun","status":"PAID","hours":25.0,"billed":724.0,"paidamt":724.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-15","filed":"17 Jun","service":"2 Jun \u2013 12 Jun","status":"PAID","hours":24.25,"billed":702.28,"paidamt":702.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"17 Jun","service":"1 Jun \u2013 11 Jun","status":"PAID","hours":24.25,"billed":702.28,"paidamt":702.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-03","filed":"17 Jun","service":"8 Jun \u2013 12 Jun","status":"PAID","hours":22.25,"billed":644.36,"paidamt":499.56,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-03","filed":"12 Jun","service":"1 Jun \u2013 5 Jun","status":"PAID","hours":21.25,"billed":615.4,"paidamt":615.4,"reason":"","reason_txt":"","remark":""},{"patient":"P-07","filed":"12 Jun","service":"1 Jun \u2013 5 Jun","status":"PAID","hours":21.0,"billed":608.16,"paidamt":608.16,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"12 Jun","service":"1 Jun \u2013 5 Jun","status":"PAID","hours":20.75,"billed":600.92,"paidamt":600.92,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"17 Jun","service":"1 Jun \u2013 11 Jun","status":"PAID","hours":20.25,"billed":586.44,"paidamt":231.68,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-05","filed":"17 Jun","service":"2 Jun \u2013 11 Jun","status":"PAID","hours":20.0,"billed":579.2,"paidamt":347.52,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-09","filed":"12 Jun","service":"1 Jun \u2013 5 Jun","status":"PAID","hours":16.25,"billed":470.6,"paidamt":470.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-32","filed":"17 Jun","service":"1 Jun \u2013 13 Jun","status":"PAID","hours":16.25,"billed":470.6,"paidamt":470.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"17 Jun","service":"8 Jun \u2013 12 Jun","status":"PAID","hours":16.25,"billed":470.6,"paidamt":470.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"1 Jun","service":"25 May \u2013 28 May","status":"PAID","hours":15.25,"billed":441.64,"paidamt":296.84,"reason":"272","reason_txt":"Coverage or program guidelines were not met","remark":"N820"},{"patient":"P-10","filed":"12 Jun","service":"1 Jun \u2013 4 Jun","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"17 Jun","service":"9 Jun \u2013 11 Jun","status":"PAID","hours":10.0,"billed":289.6,"paidamt":289.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"12 Jun","service":"2 Jun \u2013 4 Jun","status":"PAID","hours":9.0,"billed":260.64,"paidamt":260.64,"reason":"","reason_txt":"","remark":""},{"patient":"P-05","filed":"12 Jun","service":"2 Jun \u2013 4 Jun","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-17","filed":"17 Jun","service":"12 Jun \u2013 13 Jun","status":"PAID","hours":7.75,"billed":224.44,"paidamt":224.44,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"1 Jun","service":"22 May \u2013 28 May","status":"PAID","hours":0.0,"billed":-441.64,"paidamt":-152.04,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"}]},{"remit":"7 July 2026","remit_short":"Jul 7","iso":"2026-07-07","ref":"202607071083452221","claims":28,"paid_n":26,"denied_n":2,"total_paid":17846.6,"total_billed":22494.68,"denied_amt":4648.08,"denial_rate":7.1,"hours":616.25,"turn_med":15,"turn_min":15,"turn_max":19,"filed_lo":"18 Jun","filed_hi":"22 Jun","rows":[{"patient":"P-28","filed":"18 Jun","service":"20 May \u2013 13 Jun","status":"DENIED","hours":84.0,"billed":2432.64,"paidamt":0.0,"reason":"22","reason_txt":"May be covered by another payer \u2014 coordination of benefits","remark":"M62"},{"patient":"P-04","filed":"22 Jun","service":"18 May \u2013 20 Jun","status":"DENIED","hours":76.5,"billed":2215.44,"paidamt":0.0,"reason":"18","reason_txt":"Exact duplicate of a claim already adjudicated","remark":"N702"},{"patient":"P-15","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":57.25,"billed":1657.96,"paidamt":1657.96,"reason":"","reason_txt":"","remark":""},{"patient":"P-12","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":49.75,"billed":1440.76,"paidamt":1440.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-08","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":43.25,"billed":1252.52,"paidamt":1252.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-25","filed":"22 Jun","service":"14 Jun \u2013 19 Jun","status":"PAID","hours":36.5,"billed":1057.04,"paidamt":1057.04,"reason":"","reason_txt":"","remark":""},{"patient":"P-18","filed":"22 Jun","service":"15 Jun \u2013 19 Jun","status":"PAID","hours":36.0,"billed":1042.56,"paidamt":1042.56,"reason":"","reason_txt":"","remark":""},{"patient":"P-02","filed":"22 Jun","service":"15 Jun \u2013 20 Jun","status":"PAID","hours":31.5,"billed":912.24,"paidamt":912.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-19","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":27.75,"billed":803.64,"paidamt":803.64,"reason":"","reason_txt":"","remark":""},{"patient":"P-23","filed":"22 Jun","service":"15 Jun \u2013 19 Jun","status":"PAID","hours":25.25,"billed":731.24,"paidamt":731.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-11","filed":"22 Jun","service":"15 Jun \u2013 19 Jun","status":"PAID","hours":25.0,"billed":724.0,"paidamt":724.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-27","filed":"22 Jun","service":"14 Jun \u2013 19 Jun","status":"PAID","hours":24.5,"billed":709.52,"paidamt":709.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-10","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":24.25,"billed":702.28,"paidamt":702.28,"reason":"","reason_txt":"","remark":""},{"patient":"P-20","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":23.5,"billed":680.56,"paidamt":680.56,"reason":"","reason_txt":"","remark":""},{"patient":"P-09","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":22.5,"billed":651.6,"paidamt":651.6,"reason":"","reason_txt":"","remark":""},{"patient":"P-05","filed":"22 Jun","service":"15 Jun \u2013 19 Jun","status":"PAID","hours":21.25,"billed":615.4,"paidamt":615.4,"reason":"","reason_txt":"","remark":""},{"patient":"P-21","filed":"22 Jun","service":"15 Jun \u2013 19 Jun","status":"PAID","hours":20.5,"billed":593.68,"paidamt":593.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-16","filed":"22 Jun","service":"14 Jun \u2013 20 Jun","status":"PAID","hours":19.25,"billed":557.48,"paidamt":557.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-01","filed":"22 Jun","service":"14 Jun \u2013 19 Jun","status":"PAID","hours":19.0,"billed":550.24,"paidamt":550.24,"reason":"","reason_txt":"","remark":""},{"patient":"P-17","filed":"22 Jun","service":"15 Jun \u2013 18 Jun","status":"PAID","hours":18.75,"billed":543.0,"paidamt":543.0,"reason":"","reason_txt":"","remark":""},{"patient":"P-13","filed":"22 Jun","service":"15 Jun \u2013 20 Jun","status":"PAID","hours":17.0,"billed":492.32,"paidamt":492.32,"reason":"","reason_txt":"","remark":""},{"patient":"P-22","filed":"22 Jun","service":"15 Jun \u2013 19 Jun","status":"PAID","hours":15.25,"billed":441.64,"paidamt":441.64,"reason":"","reason_txt":"","remark":""},{"patient":"P-06","filed":"22 Jun","service":"16 Jun \u2013 19 Jun","status":"PAID","hours":13.0,"billed":376.48,"paidamt":376.48,"reason":"","reason_txt":"","remark":""},{"patient":"P-07","filed":"22 Jun","service":"15 Jun \u2013 18 Jun","status":"PAID","hours":12.25,"billed":354.76,"paidamt":354.76,"reason":"","reason_txt":"","remark":""},{"patient":"P-14","filed":"22 Jun","service":"17 Jun \u2013 19 Jun","status":"PAID","hours":12.0,"billed":347.52,"paidamt":347.52,"reason":"","reason_txt":"","remark":""},{"patient":"P-24","filed":"22 Jun","service":"17 Jun \u2013 18 Jun","status":"PAID","hours":8.75,"billed":253.4,"paidamt":253.4,"reason":"","reason_txt":"","remark":""},{"patient":"P-03","filed":"22 Jun","service":"16 Jun \u2013 18 Jun","status":"PAID","hours":8.0,"billed":231.68,"paidamt":231.68,"reason":"","reason_txt":"","remark":""},{"patient":"P-26","filed":"22 Jun","service":"15 Jun","status":"PAID","hours":4.25,"billed":123.08,"paidamt":123.08,"reason":"","reason_txt":"","remark":""}]}],"trend":[{"week":"May 14","iso":"2026-05-14","paid":16753.36,"denied":0},{"week":"May 21","iso":"2026-05-21","paid":18433.04,"denied":4},{"week":"May 29","iso":"2026-05-29","paid":19287.36,"denied":0},{"week":"Jun 4","iso":"2026-06-04","paid":19091.88,"denied":1},{"week":"Jun 11","iso":"2026-06-11","paid":4706.0,"denied":0},{"week":"Jun 18","iso":"2026-06-18","paid":15357.8,"denied":2},{"week":"Jun 25","iso":"2026-06-25","paid":40848.08,"denied":2},{"week":"Jul 7","iso":"2026-07-07","paid":17846.6,"denied":2}],"provider":{"name":"Peniel Healthcare","addr":"5704 Roden Park Dr, Liberty Township, OH 45044","npi":"1083452221","pid":"0078568"}};
+const P = DATA.provider;
 const m2 = n => n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
 const m0 = n => "$"+Math.round(n).toLocaleString("en-US");
+let filter = "all";
 
-/* ledger */
-document.getElementById("rows").innerHTML = DATA.rows.map(r=>{
-  const den = r.status==="DENIED";
-  const outcome = den
-    ? `<span class="flag">Denied${r.fn?` <span class="fn">${r.fn}</span>`:""}</span>`
-    : `Paid in full`;
-  return `<tr class="${den?'den':''}">
-    <td class="id">${r.patient}</td>
-    <td>${r.filed}</td>
-    <td>${r.service}</td>
-    <td class="r money">${m2(r.hours)}</td>
-    <td class="r money">$${m2(r.billed)}</td>
-    <td class="r money">${r.paidamt>0?"$"+m2(r.paidamt):"—"}</td>
-    <td>${outcome}</td>
-  </tr>`;
-}).join("");
-document.getElementById("t-hours").textContent = m2(DATA.rows.reduce((s,r)=>s+r.hours,0));
-document.getElementById("t-billed").textContent = "$"+m2(DATA.rows.reduce((s,r)=>s+r.billed,0));
-document.getElementById("t-paid").textContent = "$"+m2(DATA.rows.reduce((s,r)=>s+r.paidamt,0));
+/* letterhead */
+document.getElementById("org").textContent = P.name + " · Ohio Department of Medicaid";
+document.getElementById("addr").innerHTML = P.addr + ' &nbsp;·&nbsp; <span class="mono">NPI '+P.npi+' · Provider '+P.pid+'</span>';
 
-/* exceptions */
+/* week selector */
+const sel = document.getElementById("week");
+DATA.weeks.slice().reverse().forEach(w=>{ const o=document.createElement("option"); o.value=w.iso; o.textContent=w.remit; sel.appendChild(o); });
+document.getElementById("wkcount").textContent = DATA.weeks.length + " weeks available";
+
 const ACT = {
-  "22":"<b>To recover:</b> confirm the recipient's other-payer coverage and attach the treatment authorization code, then resubmit. An authorization gap, not a lost claim.",
-  "18":"<b>To resolve:</b> verify the original claim was paid — a duplicate flag usually needs no action and is not a loss."
+  "22":"<b>To recover:</b> confirm the recipient's other-payer coverage and attach the treatment authorization code, then resubmit.",
+  "18":"<b>To resolve:</b> verify the original claim was paid — a duplicate flag usually needs no action and is not a loss.",
+  "45":"<b>To review:</b> the paid amount was capped to the fee schedule; confirm the billed rate against the current schedule.",
+  "177":"<b>To recover:</b> verify the recipient's eligibility for the dates of service, then resubmit once active.",
+  "272":"<b>To review:</b> the service fell outside program guidelines; check authorization and service limits before resubmitting."
 };
-document.getElementById("exc").innerHTML = DATA.rows.filter(r=>r.status==="DENIED").map(r=>`
-  <div class="item">
-    <div class="x-top"><span class="x-id">${r.patient}</span><span class="x-amt">$${m2(r.billed)}</span></div>
-    <div class="x-code">Reason ${r.reason}${r.remark?` · Remark ${r.remark}`:""}</div>
-    <div class="x-mean">${r.reason_txt}</div>
-    <div class="x-act">${ACT[r.reason]||""}</div>
-  </div>`).join("");
 
-/* eight-week history — thin ruled columns */
-(function(){
+function render(iso){
+  const w = DATA.weeks.find(x=>x.iso===iso) || DATA.weeks[DATA.weeks.length-1];
+
+  /* summary */
+  document.getElementById("summary").innerHTML = `
+    <div class="fig"><div class="f-lab">Claims settled</div><div class="f-val tnum">${w.claims}</div><div class="f-note">${w.paid_n} paid · ${w.denied_n} denied</div></div>
+    <div class="fig pos"><div class="f-lab">Amount paid</div><div class="f-val tnum"><span class="u">$</span>${Math.round(w.total_paid).toLocaleString("en-US")}</div><div class="f-note">disbursed ${w.remit_short}</div></div>
+    <div class="fig neg"><div class="f-lab">Amount denied</div><div class="f-val tnum"><span class="u">$</span>${Math.round(w.denied_amt).toLocaleString("en-US")}</div><div class="f-note">${w.denied_n} claim${w.denied_n===1?"":"s"} held back</div></div>
+    <div class="fig"><div class="f-lab">Denial rate</div><div class="f-val tnum">${w.denial_rate}<span class="u">%</span></div><div class="f-note">${w.denied_n} of ${w.claims} claims</div></div>
+    <div class="fig"><div class="f-lab">Turnaround</div><div class="f-val tnum">${w.turn_med}<span class="u"> days</span></div><div class="f-note">filed to paid, median</div></div>`;
+
+  /* glance */
+  const denClause = w.denied_n===0
+    ? "No claims were denied this week."
+    : `${w.denied_n} claim${w.denied_n===1?" was":"s were"} denied, worth <b>${m0(w.denied_amt)}</b> until corrected.`;
+  document.getElementById("glance").innerHTML =
+    `In the remittance paid <b>${w.remit}</b>, Ohio Medicaid settled <b>${w.paid_n} of ${w.claims}</b> personal-care claims for <b>${m0(w.total_paid)}</b> across ${Math.round(w.hours)} verified hours. ${denClause} Claims cleared a median of <b>${w.turn_med} days</b> after filing.`;
+
+  /* lifecycle */
+  document.getElementById("life").innerHTML = `
+    <div class="ls"><div class="t">Filed</div><div class="d">${w.filed_lo}–${w.filed_hi}</div></div>
+    <div class="lc"><span class="cap">median ${w.turn_med} days</span></div>
+    <div class="ls mid"><div class="t">Adjudicated</div><div class="d">Ohio Medicaid</div></div>
+    <div class="lc done"><span class="cap">settled</span></div>
+    <div class="ls end"><div class="t">Paid</div><div class="d">${w.remit_short}</div></div>`;
+
+  renderRows(w);
+
+  /* exceptions */
+  const dens = w.rows.filter(r=>r.status==="DENIED");
+  document.getElementById("exc-note").textContent = dens.length? m0(w.denied_amt)+" held back" : "none this week";
+  const excEl = document.getElementById("exc");
+  if(!dens.length){ excEl.className=""; excEl.innerHTML = `<div class="exc one"><div class="none">Every claim in this remittance was paid. Nothing to work.</div></div>`; }
+  else{
+    excEl.innerHTML = `<div class="exc ${dens.length===1?'one':''}">` + dens.map(r=>`
+      <div class="item">
+        <div class="x-top"><span class="x-id">${r.patient}</span><span class="x-amt">$${m2(r.billed)}</span></div>
+        <div class="x-code">Reason ${r.reason}${r.remark?` · Remark ${r.remark}`:""}</div>
+        <div class="x-mean">${r.reason_txt}</div>
+        <div class="x-act">${ACT[r.reason]||"<b>To review:</b> check the reason code against the claim and resubmit if appropriate."}</div>
+      </div>`).join("") + `</div>`;
+  }
+
+  drawChart(iso);
+}
+
+function renderRows(w){
+  const rows = w.rows.filter(r=> filter==="all" ? true : r.status===filter);
+  document.getElementById("rows").innerHTML = rows.map(r=>{
+    const den=r.status==="DENIED";
+    return `<tr class="${den?'den':''}">
+      <td class="id">${r.patient}</td><td>${r.filed}</td><td>${r.service}</td>
+      <td class="r money">${m2(r.hours)}</td><td class="r money">$${m2(r.billed)}</td>
+      <td class="r money">${r.paidamt>0?"$"+m2(r.paidamt):"—"}</td>
+      <td>${den?'<span class="flag">Denied</span>':'Paid in full'}</td></tr>`;
+  }).join("");
+  const lab = filter==="all"?`Totals — ${rows.length} claims`:filter==="PAID"?`Paid subtotal — ${rows.length}`:`Denied subtotal — ${rows.length}`;
+  document.getElementById("t-lab").textContent = lab;
+  document.getElementById("t-hours").textContent = m2(rows.reduce((s,r)=>s+r.hours,0));
+  document.getElementById("t-billed").textContent = "$"+m2(rows.reduce((s,r)=>s+r.billed,0));
+  document.getElementById("t-paid").textContent = "$"+m2(rows.reduce((s,r)=>s+r.paidamt,0));
+}
+
+function drawChart(iso){
   const t=DATA.trend, W=900,H=210, padL=8,padR=8,padT=26,padB=34;
   const iw=W-padL-padR, ih=H-padT-padB, max=Math.max(...t.map(d=>d.paid));
-  const step=iw/t.length, bw=Math.min(46, step*0.5);
-  const y=v=>padT+ih-(v/(max*1.12))*ih, base=padT+ih;
+  const step=iw/t.length, bw=Math.min(46, step*0.5), base=padT+ih;
+  const y=v=>padT+ih-(v/(max*1.12))*ih;
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Amount paid per weekly remittance, last eight weeks">`;
   s+=`<line x1="${padL}" y1="${base}" x2="${W-padR}" y2="${base}" stroke="var(--rule-strong)" stroke-width="1"/>`;
   t.forEach((d,i)=>{
-    const cx=padL+i*step+step/2, x=cx-bw/2, yy=y(d.paid), h=base-yy, last=i===t.length-1;
-    s+=`<rect x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${last?'var(--green)':'var(--rule-strong)'}"/>`;
-    if(last) s+=`<text x="${cx.toFixed(1)}" y="${(yy-9).toFixed(1)}" text-anchor="middle" font-size="12" font-weight="640" fill="var(--green)" font-family="var(--serif)">${m0(d.paid)}</text>`;
+    const cx=padL+i*step+step/2, x=cx-bw/2, yy=y(d.paid), h=base-yy, on=d.iso===iso;
+    s+=`<rect x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${on?'var(--green)':'var(--rule-strong)'}"/>`;
+    if(on) s+=`<text x="${cx.toFixed(1)}" y="${(yy-9).toFixed(1)}" text-anchor="middle" font-size="12" font-weight="640" fill="var(--green)" font-family="var(--serif)">${m0(d.paid)}</text>`;
     if(d.denied>0) s+=`<circle cx="${cx.toFixed(1)}" cy="${(base+11).toFixed(1)}" r="3" fill="var(--brick)"/>`;
-    s+=`<text x="${cx.toFixed(1)}" y="${(base+27).toFixed(1)}" text-anchor="middle" font-size="11" fill="${last?'var(--ink)':'var(--faint)'}" font-weight="${last?'600':'400'}" font-family="var(--mono)">${d.week}</text>`;
+    s+=`<text x="${cx.toFixed(1)}" y="${(base+27).toFixed(1)}" text-anchor="middle" font-size="11" fill="${on?'var(--ink)':'var(--faint)'}" font-weight="${on?'600':'400'}" font-family="var(--mono)">${d.week}</text>`;
   });
-  s+=`</svg>`;
-  document.getElementById("chart").innerHTML=s;
-})();
+  document.getElementById("chart").innerHTML = s+`</svg>`;
+}
+
+/* controls */
+sel.addEventListener("change", e=>render(e.target.value));
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{
+  filter=b.dataset.f;
+  document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed", x===b));
+  renderRows(DATA.weeks.find(x=>x.iso===sel.value));
+}));
+
+/* theme toggle */
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+const tb=document.getElementById("theme");
+function curTheme(){ return document.documentElement.getAttribute("data-theme") ||
+  (matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"); }
+function paintBtn(){ const dark=curTheme()==="dark"; tb.innerHTML=(dark?SUN:MOON)+`<span>${dark?"Light":"Dark"}</span>`; }
+try{ const saved=localStorage.getItem("ph-theme"); if(saved) document.documentElement.setAttribute("data-theme",saved); }catch(e){}
+paintBtn();
+tb.addEventListener("click",()=>{ const next=curTheme()==="dark"?"light":"dark";
+  document.documentElement.setAttribute("data-theme",next);
+  try{ localStorage.setItem("ph-theme",next); }catch(e){} paintBtn(); });
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",paintBtn);
+
+/* meta ref + initial render */
+const latest=DATA.weeks[DATA.weeks.length-1];
+document.getElementById("ref").textContent = "RA-"+latest.iso;
+sel.value=latest.iso;
+render(latest.iso);
+sel.addEventListener("change",()=>{ document.getElementById("ref").textContent="RA-"+sel.value; });
 </script>
 </body>
 </html>
