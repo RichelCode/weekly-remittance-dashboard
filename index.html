@@ -86,16 +86,18 @@
   .glance b{font-weight:600}
 
   /* lifecycle line */
-  .life{margin:30px 0 6px}
-  .life .track{position:relative; height:1px; background:var(--rule-strong); margin:34px 8px 0}
-  .life .node{position:absolute; top:-4px; width:9px; height:9px; border-radius:50%;
-    background:var(--surface); border:2px solid var(--ink-2); transform:translateX(-50%)}
-  .life .node.end{border-color:var(--green); background:var(--green)}
-  .life .lab{position:absolute; top:-40px; transform:translateX(-50%); text-align:center; white-space:nowrap}
-  .life .lab .t{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:600}
-  .life .lab .d{font-size:13.5px; color:var(--ink); font-weight:560; margin-top:2px}
-  .life .span{position:absolute; top:12px; left:50%; transform:translateX(-50%);
-    font-size:11.5px; color:var(--ink-2); background:var(--surface); padding:0 8px}
+  .life{margin:30px 0 6px; display:flex; align-items:center; gap:0}
+  .life .ls{display:flex; flex-direction:column; gap:3px; flex:none}
+  .life .ls.mid{text-align:center; align-items:center}
+  .life .ls.end{text-align:right; align-items:flex-end}
+  .life .ls .t{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); font-weight:600}
+  .life .ls .d{font-size:14px; color:var(--ink); font-weight:560}
+  .life .ls.end .d{color:var(--green)}
+  .life .lc{flex:1; position:relative; height:1px; background:var(--rule-strong); margin:22px 16px 0}
+  .life .lc .cap{position:absolute; left:50%; top:-11px; transform:translateX(-50%);
+    white-space:nowrap; font-size:11px; color:var(--ink-2); background:var(--surface); padding:0 8px}
+  .life .lc.done{background:linear-gradient(90deg,var(--rule-strong),var(--green))}
+  @media (max-width:560px){ .life .ls .d{font-size:12.5px} .life .lc{margin:22px 8px 0} }
 
   /* section label */
   .sec{margin-top:40px}
@@ -185,15 +187,11 @@
   <p class="glance">In the remittance paid <b>7 July</b>, Ohio Medicaid settled <b>26 of 28</b> personal-care claims for <b>$17,847</b> across 616 verified hours. Two claims were denied: an authorization gap worth <b>$2,433</b> that can be corrected and resubmitted, and a duplicate of a claim already paid. Claims cleared a median of <b>15 days</b> after filing.</p>
 
   <div class="life">
-    <div class="track">
-      <div class="node" style="left:2%"></div>
-      <div class="lab" style="left:2%"><div class="t">Filed</div><div class="d">Jun 18–22</div></div>
-      <div class="node" style="left:50%"></div>
-      <div class="lab" style="left:50%"><div class="t">Adjudicated</div><div class="d">Ohio Medicaid</div></div>
-      <div class="node end" style="left:98%"></div>
-      <div class="lab" style="left:98%"><div class="t">Paid</div><div class="d">Jul 7</div></div>
-      <div class="span">← median 15 days →</div>
-    </div>
+    <div class="ls"><div class="t">Filed</div><div class="d">Jun 18–22</div></div>
+    <div class="lc"><span class="cap">median 15 days</span></div>
+    <div class="ls mid"><div class="t">Adjudicated</div><div class="d">Ohio Medicaid</div></div>
+    <div class="lc done"><span class="cap">settled</span></div>
+    <div class="ls end"><div class="t">Paid</div><div class="d">Jul 7</div></div>
   </div>
 
   <div class="sec">
